@@ -1,3 +1,4 @@
+# https://adventofcode.com/2024/day/1
 
 def make_sorted_lists():
     # Open the file for reading
@@ -15,6 +16,7 @@ def make_sorted_lists():
             list2.append(second)
     return sorted(list1), sorted(list2)
 
+# for part 1
 def find_difference_between_lists(list1, list2):
     difference = 0
     for i in range(len(list1)):
@@ -24,9 +26,20 @@ def find_difference_between_lists(list1, list2):
         difference += diff
     return difference
 
+# for part 2
+def find_similarity_between_lists(list1, list2):
+    similarity = 0
+    for i in range(len(list1)):
+        count = list2.count(list1[i])
+        sim = count*list1[i]
+        similarity += sim
+    return similarity
+
 def main():
     list1, list2 = make_sorted_lists()
     difference = find_difference_between_lists(list1, list2)
     print(f'The distance between both lists is {difference}')
+    similarity = find_similarity_between_lists(list1, list2)
+    print(f'The similarity between both lists is {similarity}')
 
 main()
