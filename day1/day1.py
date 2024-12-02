@@ -1,4 +1,3 @@
-import open
 
 def make_sorted_lists():
     # Open the file for reading
@@ -17,15 +16,17 @@ def make_sorted_lists():
     return sorted(list1), sorted(list2)
 
 def find_difference_between_lists(list1, list2):
-    diff = sum(list1) - sum(list2)
-    if diff < 0:
-        diff = diff * -1
-    return diff
+    difference = 0
+    for i in range(len(list1)):
+        diff = list1[i] - list2[i]
+        if diff < 0:
+            diff = diff*-1
+        difference += diff
+    return difference
 
 def main():
     list1, list2 = make_sorted_lists()
     difference = find_difference_between_lists(list1, list2)
     print(f'The distance between both lists is {difference}')
-
 
 main()
